@@ -20,11 +20,23 @@ from lambda_function import lambda_handler
 lambda_handler(None, None)
 ```
 
-## zip作成
+## AWS Lambdaへリリース
+
+### zip作成
+
+repo配下に```.gitkeep```ファイル以外が存在しないことを確認しておくこと。
 
 ``` sh
 zip -r upload.zip *
 ```
+
+### Upload
+
+1. アップロード元 -> .zipファイル -> 作成したupload.zipファイルをupload。
+2. 環境変数設定
+    - 設定 -> 環境変数 -> 編集を押下。
+      - キー：GIT_PYTHON_REFRESH
+      - 値：quiet
 
 ## 参考
 
