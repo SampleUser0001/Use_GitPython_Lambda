@@ -9,7 +9,32 @@ pip install GitPython -t ./GitPython
 pip install python-dotenv -t ./python-dotenv
 ```
 
-## 動作確認
+## ローカルで動かす
+
+lambda_function.pyの
+
+ここを
+``` python
+  t = repo.head.commit.tree
+  # print(repo.git.diff('HEAD^'))
+
+  return {
+    'statusCode': 200,
+    'body': repo.git.diff('HEAD^')
+  }
+```
+
+こう修正する。
+``` python
+  t = repo.head.commit.tree
+  print(repo.git.diff('HEAD^'))
+
+  # return {
+  #   'statusCode': 200,
+  #   'body': repo.git.diff('HEAD^')
+  # }
+```
+
 
 ``` sh
 python3
